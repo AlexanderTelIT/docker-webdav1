@@ -15,6 +15,10 @@ COPY entrypoint.sh /opt/webdav/entrypoint.sh
 RUN chmod -R 7777 /etc/nginx/
 RUN chmod -R 7777 /opt/webdav/
 RUN chmod -R 7777 /var/lib/nginx/
+RUN chmod -R 777 /var/log/nginx/. &&\
+    chmod -R 777 /etc/nginx/.
+
+
 
 ENV WEBDAV_USER=webdav
 ENV WEBDAV_PASSWORD=webdav
