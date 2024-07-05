@@ -19,7 +19,7 @@ RUN chmod -R 777 /var/log/nginx/. &&\
     chmod -R 777 /etc/nginx/.
 RUN chmod -R 777 /run/nginx    
 RUN mkdir /mnt/webdav
-RUN chmod -R 777 /mnt/webdav
+RUN chmod -R 7777 /mnt/webdav
 
 ENV WEBDAV_USER=webdav
 ENV WEBDAV_PASSWORD=webdav
