@@ -19,6 +19,10 @@ ENV WEBDAV_USER=webdav
 ENV WEBDAV_PASSWORD=webdav
 ENV WEBDAV_MAX_UPLOAD_SIZE=0
 
+ENV HTPASSWD_FILE=/opt/webdav/.htpasswd
+
+RUN sed -i "s/client_max_body_size 0;/client_max_body_size $WEBDAV_MAX_UPLOAD_SIZE;/g" /etc/nginx/http.d/default.conf
+
 ENTRYPOINT ["/opt/webdav/entrypoint.sh"]
 
 CMD ["/usr/sbin/nginx", "-c", "/etc/nginx/nginx.conf", "-g", "daemon off;"]
